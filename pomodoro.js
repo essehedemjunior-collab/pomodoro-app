@@ -147,6 +147,8 @@ restart.addEventListener("click", function (){
         tempsTotal = Number(inputLong.value) * 60;
         tempsRestant = Number(inputLong.value) * 60;
     }
+    
+    restart.textContent = "";
     temps.textContent = formatTemps(tempsRestant);
 });
 
