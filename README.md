@@ -30,3 +30,7 @@ Une application de gestion du temps basée sur la méthode Pomodoro, développé
 ## À propos
 
 Projet réalisé dans le cadre de mon apprentissage du développement front-end, en tant qu'étudiant en IT.
+
+## Démo en ligne
+
+[Voir l'application](https://pomodoro-app-eight-zeta.vercel.app/)
