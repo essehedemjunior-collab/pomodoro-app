@@ -62,6 +62,13 @@ function arreterDecompte(){
     start.textContent = "start";
 }
 
+if ("Notification" in window){
+    if (Notification.permission !== "granted" && Notification.permission !== "denied"){
+        Notification.requestPermission();
+    }
+}
+
+
 function decompte(){
     tempsRestant -= 1;
     temps.textContent = formatTemps(tempsRestant);
@@ -77,7 +84,7 @@ function decompte(){
         arreterDecompte();
         
         if (pomodoro.className == "active btn-nav"){
-            if (Notification.permission === "granted"){
+            if ("Notification" in window && Notification.permission === "granted"){
                 new Notification("Pomodoro terminé !", {
                     body: "Il est temps de faire une pause !",
                     icon: "assets/favicon-32x32.png"
@@ -91,7 +98,7 @@ function decompte(){
             }
         } else {
             activerPomodoro();
-            if (Notification.permission === "granted"){
+            if ("Notification" in window && Notification.permission === "granted"){
                 new Notification("Pause terminée !", {
                     body: "Retour au travail !",
                     icon: "assets/favicon-32x32.png"
@@ -99,10 +106,6 @@ function decompte(){
             }
         }
     }
-}
-
-if (Notification.permission !== "granted" && Notification.permission !== "denied"){
-    Notification.requestPermission();
 }
 
 
