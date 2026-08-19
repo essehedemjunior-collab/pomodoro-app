@@ -14,7 +14,9 @@
 
 #cercle {
     width: 400px;
+    max-width: 85vw;
     height: 400px;
+    max-height: 85vw;
     border: 15px solid rgb(80, 11, 145);
     border-radius: 50%;
     box-shadow: 0 0 80px rgb(66, 36, 146);
