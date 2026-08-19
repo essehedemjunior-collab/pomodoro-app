@@ -31,6 +31,8 @@ let tempsTotal = 25 * 60;
 
 let intervalId;
 
+let cyclesPomodoro = 0;
+
 function formatTemps(tps){
     let minutes = Math.floor(tps/60);
     let secondes = tps%60;
@@ -68,9 +70,19 @@ function decompte(){
 
     if (tempsRestant === 0){
         arreterDecompte();
+
+        if (pomodoro.className == "active btn-nav"){
+            cyclesPomodoro += 1;
+            if (cyclesPomodoro % 4 === 0){
+                activerLongBreak();
+            } else {
+                activerShortBreak();
+            }
+        } else {
+            activerPomodoro();
+        }
     }
 }
-
 
 
 
@@ -115,60 +127,70 @@ restart.addEventListener("click", function (){
     temps.textContent = formatTemps(tempsRestant);
 });
 
-
-
-pomodoro.addEventListener("click", function (){
-    arreterDecompte();
-
-    // tempsTotal = 25 * 60;
-    // tempsRestant = 25 * 60;
+function activerPomodoro(){
     tempsTotal = Number(inputPomo.value) * 60;
     tempsRestant = Number(inputPomo.value) * 60;
     temps.textContent = formatTemps(tempsRestant);
     pomodoro.className = "active btn-nav";
     shBreak.className = "btn-nav";
     lgBreak.className = "btn-nav";
-
+    
     btnav.forEach(btn => {
         btn.style.backgroundColor = "";
     });
     document.querySelector("#boutons .active").style.backgroundColor = couleurSelectionnee;
-});
 
-shBreak.addEventListener("click", function (){
-    arreterDecompte();
+}
 
-    // tempsTotal = 5 * 60;
-    // tempsRestant = 5 * 60;
+function activerShortBreak(){
     tempsTotal = Number(inputShort.value) * 60;
     tempsRestant = Number(inputShort.value) * 60;
     temps.textContent = formatTemps(tempsRestant);
     shBreak.className = "active btn-nav";
     lgBreak.className = "btn-nav";
     pomodoro.className = "btn-nav";
-
+    
     btnav.forEach(btn => {
         btn.style.backgroundColor = "";
     });
     document.querySelector("#boutons .active").style.backgroundColor = couleurSelectionnee;
-});
 
-lgBreak.addEventListener("click", function () {
-    arreterDecompte();
+}
 
-    // tempsTotal = 15 * 60;
-    // tempsRestant = 15 * 60;
+function activerLongBreak(){
     tempsTotal = Number(inputLong.value) * 60;
     tempsRestant = Number(inputLong.value) * 60;
     temps.textContent = formatTemps(tempsRestant);
     lgBreak.className = "active btn-nav";
     shBreak.className = "btn-nav";
     pomodoro.className = "btn-nav";
-
+    
     btnav.forEach(btn => {
         btn.style.backgroundColor = "";
     });
     document.querySelector("#boutons .active").style.backgroundColor = couleurSelectionnee;
+
+}
+
+pomodoro.addEventListener("click", function (){
+    arreterDecompte();
+    activerPomodoro();
+    // tempsTotal = 25 * 60;
+    // tempsRestant = 25 * 60;
+});
+
+shBreak.addEventListener("click", function (){
+    arreterDecompte();
+    activerShortBreak();
+    // tempsTotal = 5 * 60;
+    // tempsRestant = 5 * 60;
+});
+
+lgBreak.addEventListener("click", function () {
+    arreterDecompte();
+    activerLongBreak();
+    // tempsTotal = 15 * 60;
+    // tempsRestant = 15 * 60;
 });
 
 settings.addEventListener("click", function () {
