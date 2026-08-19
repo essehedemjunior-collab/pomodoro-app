@@ -6,9 +6,13 @@ Une application de gestion du temps basée sur la méthode Pomodoro, développé
 
 - Minuteur avec 3 modes : Pomodoro (25 min), Short Break (5 min), Long Break (15 min)
 - Démarrage, pause et reprise du minuteur
+- Bascule automatique entre les modes (pomodoro → short break, avec passage en long break tous les 4 cycles)
 - Réinitialisation du temps
 - Indicateur visuel de progression (point animé autour du cercle)
 - Panneau de réglages : personnalisation du temps, de la police et de la couleur d'accent
+- Son de notification à la fin de chaque décompte
+- Notification navigateur à la fin de chaque décompte
+
 
 ## Technologies utilisées
 
@@ -16,6 +20,7 @@ Une application de gestion du temps basée sur la méthode Pomodoro, développé
 - CSS3
 - JavaScript (vanilla, sans framework)
 - Bootstrap 4.6.2 (via CDN)
+- Web Notifications API
 
 ## Lancer le projet en local
 
@@ -24,4 +29,4 @@ Une application de gestion du temps basée sur la méthode Pomodoro, développé
 
 ## À propos
 
-Projet réalisé dans le cadre de mon apprentissage du développement front-end, en tant qu'étudiant en Administration Systèmes et Réseaux à l'IAI-Togo.
+Projet réalisé dans le cadre de mon apprentissage du développement front-end, en tant qu'étudiant en IT.
