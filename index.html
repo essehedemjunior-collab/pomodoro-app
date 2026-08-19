@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro app</title>
+    <link rel="shortcut icon" href="assets/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="../tutobootstrap/bootstrap-4.6.2-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="pomodoro.css">
+</head>
+
+<body id="container">
+    <header>
+        <img src="assets/logo.svg" alt="pomodoro" id="logo">
+    </header>
+
+    <nav id="boutons">
+        <button type="button" class="active btn-nav" id="pomo">pomodoro</button>
+        <button type="button" class="btn-nav" id="sh-br">short break</button>
+        <button type="button" class="btn-nav" id="lg-br">long break</button>
+    </nav>
+
+    <div id="cercle">
+        <div id="rotation">
+            <div id="ptrouge"></div>
+        </div>
+        <div id="temps"></div>
+        <button type="button" id="start">start</button>
+        <button type="button" id="restart"></button>
+    </div>
+
+    <button type="button" id="settings">
+        <img src="assets/icon-settings.svg" alt="settings">
+    </button>
+    <div id="modal-overlay" class="hidden">
+        <div id="modal-carte">
+            <div id="modal-header">
+                <h2>Settings</h2>
+                <button type="button" id="modal-close">
+                    <img src="assets/icon-close.svg" alt="close">
+                </button>
+            </div>
+
+            <div id="modal-time">
+                <p class="modal-label">TIME (MINUTES)</p>
+                <div id="modal-time-inputs">
+                    <div class="time-input">
+                        <label for="input-pomo">pomodoro</label>
+                        <input type="text" id="input-pomo" value="25" min="1" autocomplete="off">
+                    </div>
+                    <div class="time-input">
+                        <label for="input-short">short break</label>
+                        <input type="text" id="input-short" value="5" min="1" autocomplete="off">
+                    </div>
+                    <div class="time-input">
+                        <label for="input-long">long break</label>
+                        <input type="text" id="input-long" value="15" min="1" autocomplete="off">
+                    </div>
+                </div>
+            </div>
+
+            <div id="modal-font">
+                <p class="modal-label">FONT</p>
+                <div class="option-group">
+                    <button type="button" class="option-police active" id="police-1"
+                        data-font="Verdana, Geneva, Tahoma, sans-serif">Aa</button>
+                    <button type="button" class="option-police" id="police-2" data-font="Georgia, serif">Aa</button>
+                    <button type="button" class="option-police" id="police-3"
+                        data-font="'Courier New', monospace">Aa</button>
+                </div>
+            </div>
+
+            <div id="modal-color">
+                <p class="modal-label">COLOR</p>
+                <div class="option-group">
+                    <button type="button" class="option-couleur active" id="couleur-1" data-color="#ff6b6b"></button>
+                    <button type="button" class="option-couleur" id="couleur-2" data-color="#4ecdc4"></button>
+                    <button type="button" class="option-couleur" id="couleur-3" data-color="#a06cd5"></button>
+                </div>
+            </div>
+
+            <button type="button" id="apply">Apply</button>
+        </div>
+    </div>
+
+    <script src="pomodoro.js"></script>
+</body>
+
+</html>
