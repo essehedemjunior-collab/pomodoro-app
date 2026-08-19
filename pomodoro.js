@@ -33,6 +33,8 @@ let intervalId;
 
 let cyclesPomodoro = 0;
 
+let sonDeFin = new Audio("assets/son-de-fin.wav");
+
 function formatTemps(tps){
     let minutes = Math.floor(tps/60);
     let secondes = tps%60;
@@ -69,6 +71,8 @@ function decompte(){
     rotation.style.transform = "rotate(" + degres + "deg)";
 
     if (tempsRestant === 0){
+        sonDeFin.play();
+        
         arreterDecompte();
 
         if (pomodoro.className == "active btn-nav"){
