@@ -72,10 +72,17 @@ function decompte(){
 
     if (tempsRestant === 0){
         sonDeFin.play();
+
         
         arreterDecompte();
-
+        
         if (pomodoro.className == "active btn-nav"){
+            if (Notification.permission === "granted"){
+                new Notification("Pomodoro terminé !", {
+                    body: "Il est temps de faire une pause !",
+                    icon: "assets/favicon-32x32.png"
+                });
+            }
             cyclesPomodoro += 1;
             if (cyclesPomodoro % 4 === 0){
                 activerLongBreak();
@@ -84,10 +91,19 @@ function decompte(){
             }
         } else {
             activerPomodoro();
+            if (Notification.permission === "granted"){
+                new Notification("Pause terminée !", {
+                    body: "Retour au travail !",
+                    icon: "assets/favicon-32x32.png"
+                });
+            }
         }
     }
 }
 
+if (Notification.permission !== "granted" && Notification.permission !== "denied"){
+    Notification.requestPermission();
+}
 
 
 start.addEventListener("click", function (){
