@@ -45,7 +45,7 @@
     height: 15px;
     border-radius: 50%;
     background-color: #ff6b6b;
-    top: -0.155em;
+    top: -15px;
     left: 50%;
     transform: translateX(-50%);
 }
